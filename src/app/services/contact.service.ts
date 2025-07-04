@@ -3,17 +3,32 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Contato } from '../models/contact';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
-      private apiUrl = 'http://localhost:8080/api/contatos';
+
+  // A URL da sua API. Verifique se a porta está correta.
+  private apiUrl = 'http://localhost:8081/api/contatos';
 
   constructor(private http: HttpClient) { }
 
-
+  // Método para buscar a lista de contatos
   getContacts(): Observable<Contato[]> {
     return this.http.get<Contato[]>(this.apiUrl);
   }
+
+  createContact(contato: Contato): Observable<Contato> {
+    return this.http.post<Contato>(this.apiUrl, contato);
+  }
+deleteContact(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+getContactById(id: number): Observable<Contato> {
+   return this.http.get<Contato>(`${this.apiUrl}/${id}`);
+ }
+
+ updateContact(id: number, contact: Contato): Observable<Contato> {
+   return this.http.put<Contato>(`${this.apiUrl}/${id}`, contact);
+ }
 }

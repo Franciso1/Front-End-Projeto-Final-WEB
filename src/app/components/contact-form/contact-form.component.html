@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <h2>Novo Contato</h2>
+
+  <form (ngSubmit)="salvar()">
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="contato.nome" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="contato.email">
+    </div>
+
+    <div class="mb-3">
+      <label for="telefone" class="form-label">Telefone Principal</label>
+      <input type="text" class="form-control" id="telefone" name="telefone" [(ngModel)]="contato.telefonePrimario">
+    </div>
+
+    <div class="mb-3">
+        <label for="categoria" class="form-label">Categoria</label>
+        <select class="form-select" id="categoria" name="categoria" [(ngModel)]="contato.categoria">
+            <option value="Trabalho">Trabalho</option>
+            <option value="Família">Família</option>
+            <option value="Amigos">Amigos</option>
+            <option value="Escola">Escola</option>
+        </select>
+    </div>
+
+    <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" id="favorito" name="favorito" [(ngModel)]="contato.favorito">
+        <label class="form-check-label" for="favorito">
+          Marcar como Favorito
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
+</div>

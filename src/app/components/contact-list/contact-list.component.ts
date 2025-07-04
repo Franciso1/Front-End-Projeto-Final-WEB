@@ -20,5 +20,12 @@ export class ContactListComponent implements OnInit{
       this.contacts = data;
     });
   }
-
+deletar(id: number | undefined): void {
+  if (!id) return;
+  if (confirm('Tem certeza que deseja excluir este contato?')) {
+    this.contactService.deleteContact(id).subscribe(() => {
+      this.contacts = this.contacts.filter(c => c.id !== id);
+    });
+  }
+}
 }
