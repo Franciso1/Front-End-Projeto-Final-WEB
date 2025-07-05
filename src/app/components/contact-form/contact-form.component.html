@@ -1,9 +1,9 @@
 <div class="container mt-4">
   <h2>Novo Contato</h2>
 
-  <form (ngSubmit)="salvar()">
+  <form #contatoForm="ngForm" (ngSubmit)="salvar()">
     <div class="mb-3">
-      <label for="nome" class="form-label">Nome</label>
+      <label for="nome" class="form-label">Nome *</label>
       <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="contato.nome" required>
     </div>
 
@@ -13,13 +13,33 @@
     </div>
 
     <div class="mb-3">
-      <label for="telefone" class="form-label">Telefone Principal</label>
-      <input type="text" class="form-control" id="telefone" name="telefone" [(ngModel)]="contato.telefonePrimario">
+      <label for="telefone" class="form-label">Telefone Principal * </label>
+      <input type="text" class="form-control" id="telefone" name="telefone" [(ngModel)]="contato.telefonePrimario" required>
     </div>
 
     <div class="mb-3">
-        <label for="categoria" class="form-label">Categoria</label>
-        <select class="form-select" id="categoria" name="categoria" [(ngModel)]="contato.categoria">
+      <label for="telefoneSecundario" class="form-label">Telefone Secundário</label>
+      <input type="text" class="form-control" id="telefoneSecundario" name="telefoneSecundario" [(ngModel)]="contato.telefoneSecundario">
+    </div>
+
+    <div class="mb-3">
+  <label for="empresa" class="form-label">Empresa</label>
+  <input type="text" class="form-control" id="empresa" name="empresa" [(ngModel)]="contato.empresa">
+</div>
+
+<div class="mb-3">
+  <label for="cargo" class="form-label">Cargo</label>
+  <input type="text" class="form-control" id="cargo" name="cargo" [(ngModel)]="contato.cargo">
+</div>
+
+<div class="mb-3">
+  <label for="aniversario" class="form-label">Aniversário</label>
+  <input type="date" class="form-control" id="aniversario" name="aniversario" [(ngModel)]="contato.aniversario">
+</div>
+
+    <div class="mb-3">
+        <label for="categoria" class="form-label">Categoria *</label>
+        <select class="form-select" id="categoria" name="categoria" [(ngModel)]="contato.categoria" required>
             <option value="Trabalho">Trabalho</option>
             <option value="Família">Família</option>
             <option value="Amigos">Amigos</option>
@@ -34,6 +54,6 @@
         </label>
     </div>
 
-    <button type="submit" class="btn btn-primary">Salvar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!contatoForm.valid">Salvar</button>
   </form>
 </div>

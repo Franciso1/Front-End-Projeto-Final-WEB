@@ -9,7 +9,7 @@ import { Contato } from '../models/contact';
 export class ContactService {
 
   // A URL da sua API. Verifique se a porta está correta.
-  private apiUrl = 'http://localhost:8081/api/contatos';
+  private apiUrl = 'http://localhost:8080/api/contatos';
 
   constructor(private http: HttpClient) { }
 
@@ -31,4 +31,11 @@ getContactById(id: number): Observable<Contato> {
  updateContact(id: number, contact: Contato): Observable<Contato> {
    return this.http.put<Contato>(`${this.apiUrl}/${id}`, contact);
  }
+ searchContacts(termo: string): Observable<Contato[]> {
+  return this.http.get<Contato[]>(`${this.apiUrl}/pesquisar?termo=${termo}`);
+}
+toggleFavorite(id: number): Observable<Contato> {
+  // Usamos o método PATCH. O corpo da requisição pode ser vazio {}
+  return this.http.patch<Contato>(`${this.apiUrl}/${id}/favorito`, {});
+}
 }

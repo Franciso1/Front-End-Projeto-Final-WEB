@@ -1,7 +1,14 @@
 <div class="container mt-4">
   <h2 class="mb-3">Contatos Cadastrados</h2>
 
-  <table class="table table-hover">
+  <div class="mb-3">
+  <input type="text"
+         class="form-control"
+         placeholder="Pesquisar por nome..."
+         (input)="pesquisar($event)" />
+</div>
+
+  <table class="table table-hover align-middle">
     <thead class="table-dark">
       <tr>
         <th>ID</th>
@@ -9,44 +16,35 @@
         <th>Email</th>
         <th>Telefone</th>
         <th>Categoria</th>
-        <thead class="table-dark">
-   <tr>
-     <th>Ações</th>
-   </tr>
- </thead>
- <tbody>
-   <tr *ngFor="let contact of contacts">
-     <td>
-         <button class="btn btn-danger btn-sm" (click)="deletar(contact.id)">Excluir</button>
-     </td>
-   </tr>
- </tbody>
+        <th>Ações</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let contact of contacts">
         <td>{{ contact.id }}</td>
-        <td>{{ contact.nome }}</td>
+        <td>
+      <i class="bi me-2"
+         style="cursor: pointer;"
+         [class.bi-star-fill]="contact.favorito"
+         [class.bi-star]="!contact.favorito"
+         [class.text-warning]="contact.favorito"
+         (click)="toggleFavorito(contact)">
+      </i>
+      {{ contact.nome }}
+    </td>
         <td>{{ contact.email }}</td>
         <td>{{ contact.telefonePrimario }}</td>
         <td>{{ contact.categoria }}</td>
-        <thead class="table-dark">
-   <tr>
-     <th>Ações</th>
-   </tr>
- </thead>
- <tbody>
-   <tr *ngFor="let contact of contacts">
-     <td>
-     <a class="btn btn-primary btn-sm me-2" [routerLink]="['/contatos/editar', contact.id]">Editar</a>
-     <button class="btn btn-danger btn-sm" (click)="deletar(contact.id)">Excluir</button>
- </td>
-     <td>
-         <button class="btn btn-danger btn-sm" (click)="deletar(contact.id)">Excluir</button>
-     </td>
-   </tr>
- </tbody>
+        <td>
+          <a class="btn btn-primary btn-sm me-2" [routerLink]="['/contatos/editar', contact.id]">Editar</a>
+          <button class="btn btn-danger btn-sm" (click)="deletar(contact.id)">Excluir</button>
+        </td>
       </tr>
     </tbody>
   </table>
+
+  <div *ngIf="!contacts || contacts.length === 0" class="alert alert-info mt-3">
+    Nenhum contato encontrado. Clique em "Novo Contato" para adicionar o primeiro!
+  </div>
+
 </div>
