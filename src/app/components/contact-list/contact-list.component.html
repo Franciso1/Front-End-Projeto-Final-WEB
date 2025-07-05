@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container mt-4" content-panel>
   <h2 class="mb-3">Contatos Cadastrados</h2>
 
   <div class="mb-3">
@@ -36,15 +36,15 @@
         <td>{{ contact.telefonePrimario }}</td>
         <td>{{ contact.categoria }}</td>
         <td>
-          <a class="btn btn-primary btn-sm me-2" [routerLink]="['/contatos/editar', contact.id]">Editar</a>
-          <button class="btn btn-danger btn-sm" (click)="deletar(contact.id)">Excluir</button>
+          <a class="btn btn-primary btn-sm me-2" style="background-color: var(--cor-destaque); color: white;" [routerLink]="['/contatos/editar', contact.id]">Editar</a>
+          <button class="btn btn-sm" style="background-color: #B03A2E; color: white;" (click)="deletar(contact.id)">Excluir</button>
         </td>
       </tr>
     </tbody>
   </table>
 
   <div *ngIf="!contacts || contacts.length === 0" class="alert alert-info mt-3">
-    Nenhum contato encontrado. Clique em "Novo Contato" para adicionar o primeiro!
+    Nenhum contato encontrado. Clique em "Novo Contato" para adicionar!
   </div>
 
 </div>

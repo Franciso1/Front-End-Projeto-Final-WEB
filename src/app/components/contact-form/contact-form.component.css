@@ -1,0 +1,56 @@
+/* :host garante que o estilo se aplica apenas a este componente e nos permite centralizar o formulário */
+:host {
+  display: block;
+  max-width: 700px; /* Limita a largura do formulário em telas grandes */
+  margin: auto;     /* Centraliza o formulário na tela */
+}
+
+/* Estilo para o título do formulário (ex: "Novo Contato") */
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 300; /* Uma fonte mais leve e elegante para o título */
+  color: var(--cor-navbar); /* Usa o marrom mais escuro da sua paleta */
+}
+
+/* Estilo para os labels (Nome, Email, etc.) */
+.form-label {
+  font-weight: 500; /* Deixa o texto do label um pouco mais forte */
+  color: var(--cor-destaque); /* Usa o marrom médio do seu tema */
+}
+
+/* Efeito visual para quando o usuário clica em um campo do formulário */
+.form-control:focus {
+  border-color: var(--cor-destaque);
+  box-shadow: 0 0 0 0.25rem rgba(121, 85, 72, 0.25); /* Usa a cor de destaque com transparência */
+}
+
+/* Estilo para o campo de 'Notas' (textarea), se você o adicionou */
+textarea.form-control {
+  min-height: 120px;
+}
+
+/* Estilo customizado para o botão de Salvar */
+.btn-salvar {
+  background-color: var(--cor-destaque);
+  color: white;
+  font-weight: bold;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+  width: 100%; /* Faz o botão ocupar toda a largura */
+  margin-top: 1rem; /* Adiciona um espaço acima do botão */
+}
+
+/* Efeito de escurecer o botão ao passar o mouse */
+.btn-salvar:hover {
+  background-color: var(--cor-navbar);
+}
+
+/* Estilo do botão quando estiver desabilitado (caso o formulário seja inválido) */
+.btn-salvar:disabled {
+  background-color: #A1887F;
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -1,1 +1,66 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* Definindo nossa paleta de cores "Capivara" */
+:root {
+  --cor-fundo:#fce3bb;
+  --cor-texto: #4E342E;
+  --cor-destaque: #795548;
+  --cor-navbar: #3E2723;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+/* Força a cor customizada na nossa navbar */
+.bg-primary {
+  background-color: var(--cor-navbar) !important;
+}
+
+/* ARQUIVO: src/styles.css (adicione estas linhas) */
+
+/* Estilos para a capivara da direita */
+.mascote-capivara.direita {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 250px; /* Ajuste o tamanho conforme necessário */
+  height: auto;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.mascote-capivara.direita:hover {
+  transform: scale(1.1);
+}
+
+/* Estilos para a capivara da esquerda */
+.mascote-capivara.esquerda {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  width: 250px; /* Ajuste o tamanho conforme necessário */
+  height: auto;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.mascote-capivara.esquerda:hover {
+  transform: scale(1.1);
+}
+
+.table-dark {
+  --bs-table-bg: var(--cor-navbar);
+  --bs-table-border-color: var(--cor-destaque);
+}
+.content-panel {
+  background-color: #D7CCC8; /* Tom de marrom claro acinzentado */
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Uma sombra sutil para dar profundidade */
+}
+
+.form-control {
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-destaque);
+}

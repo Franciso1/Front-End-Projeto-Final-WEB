@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container mt-4" content-panel>
   <h2>Novo Contato</h2>
 
   <form #contatoForm="ngForm" (ngSubmit)="salvar()">
@@ -54,6 +54,6 @@
         </label>
     </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="!contatoForm.valid">Salvar</button>
+    <button type="submit" class="btn-salvar" [disabled]="!contatoForm.valid">Salvar</button>
   </form>
 </div>
