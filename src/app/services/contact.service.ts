@@ -9,7 +9,7 @@ import { Contato } from '../models/contact';
 export class ContactService {
 
   // A URL da sua API. Verifique se a porta está correta.
-  private apiUrl = 'https://https://capybaraagenda.duckdns.org/';
+  private apiUrl = 'https://http://capybaraagenda.duckdns.org/';
 
   constructor(private http: HttpClient) { }
 
