@@ -9,12 +9,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     ContactListComponent,
     NavbarComponent,
-    ContactFormComponent
+    ContactFormComponent,
+
   ],
   imports: [
     BrowserModule,

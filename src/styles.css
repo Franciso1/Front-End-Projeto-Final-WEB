@@ -7,17 +7,21 @@
   --cor-navbar: #3E2723;
 }
 
+
 body {
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
+
 }
+
+
 
 /* Força a cor customizada na nossa navbar */
 .bg-primary {
   background-color: var(--cor-navbar) !important;
 }
 
-/* ARQUIVO: src/styles.css (adicione estas linhas) */
+
 
 /* Estilos para a capivara da direita */
 .mascote-capivara.direita {
@@ -64,3 +68,4 @@ body {
   background-color: var(--cor-fundo);
   border: 1px solid var(--cor-destaque);
 }
+
